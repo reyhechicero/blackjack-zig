@@ -40,7 +40,7 @@ fn deal(allocator: std.mem.Allocator, inHand: *Hand, hand: *Hand) !void {
     outer: while (i < inHand.len) {
         const card = inHand.get(i);
         if (suits[randSuit] == card.suit and ranks[randRank] == card.rank) {
-            // std.debug.print("reroll.\n", .{});
+            std.debug.print("reroll.\n", .{});
             randSuit = random(MAX_SUIT - 1);
             randRank = random(MAX_RANK - 1);
             break :outer;
@@ -222,10 +222,6 @@ pub fn main() !void {
                 break;
             }
             bet = std.fmt.parseInt(i32, betInput, 10) catch {
-                // std.debug.print("You didn't enter a number.\n", .{});
-                // std.debug.print("enter in your bet: ", .{});
-                // betInput = (try nextLine(stdin.reader(), &betBuf)).?;
-                // continue :outer;
                 continue;
             };
             while (bet > money or bet <= 0) {
