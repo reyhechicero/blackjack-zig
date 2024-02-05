@@ -199,6 +199,7 @@ pub fn main() !void {
     var dealer = Hand{};
     defer inHand.deinit(allocator);
     defer hand.deinit(allocator);
+    std.debug.print("enter 'q' to quit at anytime", .{});
     outer: while (!quit) {
         if (money <= 0) {
             std.debug.print("You are broke!\n", .{});
